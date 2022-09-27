@@ -1,0 +1,357 @@
+BL51 BANKED LINKER/LOCATER V5.02                                                        02/20/2012  16:50:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.02, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE Attendance.obj TO AttendanceSystem RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Attendance.obj (ATTENDANCE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  AttendanceSystem (ATTENDANCE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?ATTENDANCE
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00E3H     UNIT         ?PR?SHOWADMINLOGIN?ATTENDANCE
+            CODE    08E3H     003DH     UNIT         ?PR?SHOWTEACHERLOGIN?ATTENDANCE
+            CODE    0920H     002AH     UNIT         ?PR?MAIN?ATTENDANCE
+            CODE    094AH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0956H     0001H     UNIT         ?PR?INITIALIZEDEVICE?ATTENDANCE
+            CODE    0957H     0001H     UNIT         ?PR?SHOWANDSETDATE?ATTENDANCE
+            CODE    0958H     0001H     UNIT         ?PR?SHOWWELCOMESCREEN?ATTENDANCE
+            CODE    0959H     0001H     UNIT         ?PR?GETKEYPRESSED?ATTENDANCE
+            CODE    095AH     0001H     UNIT         ?PR?SHOWADMINDISPLAY?ATTENDANCE
+            CODE    095BH     0001H     UNIT         ?PR?CREATETEACHER?ATTENDANCE
+            CODE    095CH     0001H     UNIT         ?PR?EDITTEACHER?ATTENDANCE
+            CODE    095DH     0001H     UNIT         ?PR?DELETETEACHER?ATTENDANCE
+            CODE    095EH     0001H     UNIT         ?PR?SHOWTEACHERSMENU?ATTENDANCE
+            CODE    095FH     0001H     UNIT         ?PR?SHOWSTUDENTMENU?ATTENDANCE
+            CODE    0960H     0001H     UNIT         ?PR?CREATESTUDENT?ATTENDANCE
+            CODE    0961H     0001H     UNIT         ?PR?EDITSTUDENT?ATTENDANCE
+            CODE    0962H     0001H     UNIT         ?PR?DELETESTUDENT?ATTENDANCE
+            CODE    0963H     0001H     UNIT         ?PR?SHOWSUBJECTMENU?ATTENDANCE
+            CODE    0964H     0001H     UNIT         ?PR?CREATESUBJECT?ATTENDANCE
+            CODE    0965H     0001H     UNIT         ?PR?EDITSUBJECT?ATTENDANCE
+            CODE    0966H     0001H     UNIT         ?PR?DELETESUBJECT?ATTENDANCE
+            CODE    0967H     0001H     UNIT         ?PR?CLEARATTENDANCE?ATTENDANCE
+            CODE    0968H     0001H     UNIT         ?PR?CHANGEPASSWORD?ATTENDANCE
+            CODE    0969H     0001H     UNIT         ?PR?SHOWTEACHERDISPLAY?ATTENDANCE
+            CODE    096AH     0001H     UNIT         ?PR?NEWATTENDANCE?ATTENDANCE
+            CODE    096BH     0001H     UNIT         ?PR?EDITATTENDANCE?ATTENDANCE
+            CODE    096CH     0001H     UNIT         ?PR?DELETEATTENDANCE?ATTENDANCE
+            CODE    096DH     0001H     UNIT         ?PR?CLEARSESSION?ATTENDANCE
+            CODE    096EH     0001H     UNIT         ?PR?CLEARDEVICE?ATTENDANCE
+            CODE    096FH     0001H     UNIT         ?PR?STOPDEVICE?ATTENDANCE
+
+
+BL51 BANKED LINKER/LOCATER V5.02                                                      02/20/2012  16:50:30  PAGE 2
+
+
+
+OVERLAY MAP OF MODULE:   AttendanceSystem (ATTENDANCE)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?ATTENDANCE
+
+?PR?MAIN?ATTENDANCE
+  +--> ?PR?INITIALIZEDEVICE?ATTENDANCE
+  +--> ?PR?SHOWANDSETDATE?ATTENDANCE
+  +--> ?PR?SHOWWELCOMESCREEN?ATTENDANCE
+  +--> ?PR?GETKEYPRESSED?ATTENDANCE
+  +--> ?PR?SHOWADMINLOGIN?ATTENDANCE
+  +--> ?PR?SHOWTEACHERLOGIN?ATTENDANCE
+
+?PR?SHOWADMINLOGIN?ATTENDANCE
+  +--> ?PR?SHOWADMINDISPLAY?ATTENDANCE
+  +--> ?PR?GETKEYPRESSED?ATTENDANCE
+  +--> ?PR?SHOWTEACHERSMENU?ATTENDANCE
+  +--> ?PR?CREATETEACHER?ATTENDANCE
+  +--> ?PR?EDITTEACHER?ATTENDANCE
+  +--> ?PR?DELETETEACHER?ATTENDANCE
+  +--> ?PR?SHOWSTUDENTMENU?ATTENDANCE
+  +--> ?PR?CREATESTUDENT?ATTENDANCE
+  +--> ?PR?EDITSTUDENT?ATTENDANCE
+  +--> ?PR?DELETESTUDENT?ATTENDANCE
+  +--> ?PR?SHOWSUBJECTMENU?ATTENDANCE
+  +--> ?PR?CREATESUBJECT?ATTENDANCE
+  +--> ?PR?EDITSUBJECT?ATTENDANCE
+  +--> ?PR?DELETESUBJECT?ATTENDANCE
+  +--> ?PR?CLEARATTENDANCE?ATTENDANCE
+  +--> ?PR?CHANGEPASSWORD?ATTENDANCE
+
+?PR?SHOWTEACHERLOGIN?ATTENDANCE
+  +--> ?PR?SHOWTEACHERDISPLAY?ATTENDANCE
+  +--> ?PR?GETKEYPRESSED?ATTENDANCE
+  +--> ?PR?NEWATTENDANCE?ATTENDANCE
+  +--> ?PR?EDITATTENDANCE?ATTENDANCE
+  +--> ?PR?DELETEATTENDANCE?ATTENDANCE
+  +--> ?PR?CLEARSESSION?ATTENDANCE
+
+
+
+SYMBOL TABLE OF MODULE:  AttendanceSystem (ATTENDANCE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ATTENDANCE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:08E3H         PUBLIC        showTeacherLogin
+  D:00B0H         PUBLIC        P3
+  C:0957H         PUBLIC        showAndSetDate
+BL51 BANKED LINKER/LOCATER V5.02                                                      02/20/2012  16:50:30  PAGE 3
+
+
+  C:0967H         PUBLIC        clearAttendance
+  C:095AH         PUBLIC        showAdminDisplay
+  C:0956H         PUBLIC        initializeDevice
+  D:00A8H         PUBLIC        IE
+  C:095EH         PUBLIC        showTeachersMenu
+  C:0961H         PUBLIC        editStudent
+  D:00B8H         PUBLIC        IP
+  C:096FH         PUBLIC        stopDevice
+  D:0008H         PUBLIC        result
+  C:0920H         PUBLIC        main
+  C:096BH         PUBLIC        editAttendance
+  C:0800H         PUBLIC        showAdminLogin
+  C:0963H         PUBLIC        showSubjectMenu
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:095DH         PUBLIC        deleteTeacher
+  C:095BH         PUBLIC        createTeacher
+  C:0968H         PUBLIC        changePassword
+  C:0959H         PUBLIC        getKeyPressed
+  C:095FH         PUBLIC        showStudentMenu
+  C:096AH         PUBLIC        newAttendance
+  C:0966H         PUBLIC        deleteSubject
+  C:0964H         PUBLIC        createSubject
+  C:096EH         PUBLIC        clearDevice
+  C:0969H         PUBLIC        showTeacherDisplay
+  C:0962H         PUBLIC        deleteStudent
+  C:0960H         PUBLIC        createStudent
+  D:00C8H         PUBLIC        T2CON
+  C:095CH         PUBLIC        editTeacher
+  C:096DH         PUBLIC        clearSession
+  C:096CH         PUBLIC        deleteAttendance
+  C:0958H         PUBLIC        showWelcomeScreen
+  D:00D0H         PUBLIC        PSW
+  C:0965H         PUBLIC        editSubject
+  -------         PROC          MAIN
+  C:0920H         LINE#         67
+  C:0920H         LINE#         68
+  C:0923H         LINE#         69
+  C:0926H         LINE#         70
+  C:0926H         LINE#         71
+  C:0929H         LINE#         72
+  C:0930H         LINE#         73
+  C:0938H         LINE#         74
+  C:093BH         LINE#         75
+  C:0945H         LINE#         76
+  C:0948H         LINE#         77
+  C:0948H         LINE#         78
+  -------         ENDPROC       MAIN
+  -------         PROC          INITIALIZEDEVICE
+  C:0956H         LINE#         89
+  C:0956H         LINE#         91
+  -------         ENDPROC       INITIALIZEDEVICE
+  -------         PROC          SHOWANDSETDATE
+  C:0957H         LINE#         99
+  C:0957H         LINE#         101
+  -------         ENDPROC       SHOWANDSETDATE
+  -------         PROC          SHOWWELCOMESCREEN
+BL51 BANKED LINKER/LOCATER V5.02                                                      02/20/2012  16:50:30  PAGE 4
+
+
+  C:0958H         LINE#         109
+  C:0958H         LINE#         111
+  -------         ENDPROC       SHOWWELCOMESCREEN
+  -------         PROC          SHOWADMINLOGIN
+  C:0800H         LINE#         119
+  C:0800H         LINE#         120
+  C:0803H         LINE#         121
+  C:0803H         LINE#         122
+  C:080AH         LINE#         123
+  C:0812H         LINE#         124
+  C:0815H         LINE#         125
+  C:081CH         LINE#         126
+  C:0824H         LINE#         127
+  C:0829H         LINE#         128
+  C:0831H         LINE#         129
+  C:0836H         LINE#         130
+  C:083EH         LINE#         131
+  C:0841H         LINE#         132
+  C:084BH         LINE#         133
+  C:084EH         LINE#         134
+  C:0855H         LINE#         135
+  C:085DH         LINE#         136
+  C:0862H         LINE#         137
+  C:086AH         LINE#         138
+  C:086FH         LINE#         139
+  C:0877H         LINE#         140
+  C:087AH         LINE#         141
+  C:0884H         LINE#         142
+  C:0887H         LINE#         143
+  C:088EH         LINE#         144
+  C:0896H         LINE#         145
+  C:089CH         LINE#         146
+  C:08A4H         LINE#         147
+  C:08AAH         LINE#         148
+  C:08B5H         LINE#         149
+  C:08B8H         LINE#         150
+  C:08C3H         LINE#         151
+  C:08C6H         LINE#         152
+  C:08D1H         LINE#         153
+  C:08D4H         LINE#         154
+  C:08E2H         LINE#         156
+  C:08E2H         LINE#         157
+  C:08E2H         LINE#         158
+  -------         ENDPROC       SHOWADMINLOGIN
+  -------         PROC          SHOWTEACHERLOGIN
+  C:08E3H         LINE#         166
+  C:08E3H         LINE#         167
+  C:08E6H         LINE#         168
+  C:08E6H         LINE#         169
+  C:08EDH         LINE#         170
+  C:08F5H         LINE#         171
+  C:08FAH         LINE#         172
+  C:0902H         LINE#         173
+  C:0907H         LINE#         174
+  C:090FH         LINE#         175
+  C:0914H         LINE#         176
+  C:091CH         LINE#         177
+BL51 BANKED LINKER/LOCATER V5.02                                                      02/20/2012  16:50:30  PAGE 5
+
+
+  C:091FH         LINE#         179
+  C:091FH         LINE#         180
+  C:091FH         LINE#         181
+  -------         ENDPROC       SHOWTEACHERLOGIN
+  -------         PROC          GETKEYPRESSED
+  C:0959H         LINE#         189
+  C:0959H         LINE#         191
+  -------         ENDPROC       GETKEYPRESSED
+  -------         PROC          SHOWADMINDISPLAY
+  C:095AH         LINE#         199
+  C:095AH         LINE#         201
+  -------         ENDPROC       SHOWADMINDISPLAY
+  -------         PROC          CREATETEACHER
+  C:095BH         LINE#         209
+  C:095BH         LINE#         211
+  -------         ENDPROC       CREATETEACHER
+  -------         PROC          EDITTEACHER
+  C:095CH         LINE#         220
+  C:095CH         LINE#         222
+  -------         ENDPROC       EDITTEACHER
+  -------         PROC          DELETETEACHER
+  C:095DH         LINE#         231
+  C:095DH         LINE#         233
+  -------         ENDPROC       DELETETEACHER
+  -------         PROC          SHOWTEACHERSMENU
+  C:095EH         LINE#         242
+  C:095EH         LINE#         244
+  -------         ENDPROC       SHOWTEACHERSMENU
+  -------         PROC          SHOWSTUDENTMENU
+  C:095FH         LINE#         253
+  C:095FH         LINE#         255
+  -------         ENDPROC       SHOWSTUDENTMENU
+  -------         PROC          CREATESTUDENT
+  C:0960H         LINE#         264
+  C:0960H         LINE#         266
+  -------         ENDPROC       CREATESTUDENT
+  -------         PROC          EDITSTUDENT
+  C:0961H         LINE#         275
+  C:0961H         LINE#         277
+  -------         ENDPROC       EDITSTUDENT
+  -------         PROC          DELETESTUDENT
+  C:0962H         LINE#         286
+  C:0962H         LINE#         288
+  -------         ENDPROC       DELETESTUDENT
+  -------         PROC          SHOWSUBJECTMENU
+  C:0963H         LINE#         297
+  C:0963H         LINE#         299
+  -------         ENDPROC       SHOWSUBJECTMENU
+  -------         PROC          CREATESUBJECT
+  C:0964H         LINE#         308
+  C:0964H         LINE#         310
+  -------         ENDPROC       CREATESUBJECT
+  -------         PROC          EDITSUBJECT
+  C:0965H         LINE#         319
+  C:0965H         LINE#         321
+  -------         ENDPROC       EDITSUBJECT
+  -------         PROC          DELETESUBJECT
+BL51 BANKED LINKER/LOCATER V5.02                                                      02/20/2012  16:50:30  PAGE 6
+
+
+  C:0966H         LINE#         330
+  C:0966H         LINE#         332
+  -------         ENDPROC       DELETESUBJECT
+  -------         PROC          CLEARATTENDANCE
+  C:0967H         LINE#         341
+  C:0967H         LINE#         343
+  -------         ENDPROC       CLEARATTENDANCE
+  -------         PROC          CHANGEPASSWORD
+  C:0968H         LINE#         352
+  C:0968H         LINE#         354
+  -------         ENDPROC       CHANGEPASSWORD
+  -------         PROC          SHOWTEACHERDISPLAY
+  C:0969H         LINE#         363
+  C:0969H         LINE#         365
+  -------         ENDPROC       SHOWTEACHERDISPLAY
+  -------         PROC          NEWATTENDANCE
+  C:096AH         LINE#         374
+  C:096AH         LINE#         376
+  -------         ENDPROC       NEWATTENDANCE
+  -------         PROC          EDITATTENDANCE
+  C:096BH         LINE#         385
+  C:096BH         LINE#         387
+  -------         ENDPROC       EDITATTENDANCE
+  -------         PROC          DELETEATTENDANCE
+  C:096CH         LINE#         396
+  C:096CH         LINE#         398
+  -------         ENDPROC       DELETEATTENDANCE
+  -------         PROC          CLEARSESSION
+  C:096DH         LINE#         407
+  C:096DH         LINE#         409
+  -------         ENDPROC       CLEARSESSION
+  -------         PROC          CLEARDEVICE
+  C:096EH         LINE#         418
+  C:096EH         LINE#         420
+  -------         ENDPROC       CLEARDEVICE
+  -------         PROC          STOPDEVICE
+  C:096FH         LINE#         429
+  C:096FH         LINE#         431
+  -------         ENDPROC       STOPDEVICE
+  -------         ENDMOD        ATTENDANCE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CLEARDEVICE?ATTENDANCE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?STOPDEVICE?ATTENDANCE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0181H BYTE (18%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=371
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

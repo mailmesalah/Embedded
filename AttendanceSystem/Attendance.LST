@@ -1,0 +1,474 @@
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 1   
+
+
+C51 COMPILER V7.04, COMPILATION OF MODULE ATTENDANCE
+OBJECT MODULE PLACED IN Attendance.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Attendance.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          //HEADER FILES
+   2          #include <reg52.h>
+   3          
+   4          //LOGIN SELECT KEYS
+   5          #define SelectAdmin 1
+   6          #define SelectTeacher 2
+   7          //ADMIN SELECT KEYS
+   8          #define KeyTeacher 1
+   9          #define KeyStudent 2
+  10          #define KeySubject 3
+  11          #define KeyClearAttendance 4
+  12          #define KeyPassword 5
+  13          #define KeyAdminLogout 6
+  14          //TEACHER MENU FOR ADMIN
+  15          #define CreateTeacher 1
+  16          #define EditTeacher 2
+  17          #define DeleteTeacher 3
+  18          //STUDENT MENU FOR ADMIN
+  19          #define CreateStudent 1
+  20          #define EditStudent 2
+  21          #define DeleteStudent 3
+  22          //SUBJECT MENU FOR ADMIN
+  23          #define CreateSubject 1
+  24          #define EditSubject 2
+  25          #define DeleteSubject 3
+  26          //TEACHER SELECT KEYS
+  27          #define KeyNewAttendance 1
+  28          #define KeyEditAttendance 2
+  29          #define KeyDeleteAttendance 3
+  30          #define KeyTeacherLogout 4
+  31          
+  32          //GLOBAL VARIABLES
+  33          int result;
+  34          
+  35          // FUNCTION PROTOTYPES
+  36          void initializeDevice(void);
+  37          void showAndSetDate(void);
+  38          void showWelcomeScreen(void);
+  39          void showAdminLogin(void);
+  40          void showAdminDisplay(void);
+  41          void createTeacher(void);
+  42          void editTeacher(void);
+  43          void deleteTeacher(void);
+  44          void showTeachersMenu(void);
+  45          void showStudentMenu(void);
+  46          void createStudent(void);
+  47          void editStudent(void);
+  48          void deleteStudent(void);
+  49          void showSubjectMenu(void);
+  50          void createSubject(void);
+  51          void editSubject(void);
+  52          void deleteSubject(void);
+  53          void clearAttendance(void);
+  54          void changePassword(void);
+  55          void showTeacherDisplay(void);
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 2   
+
+  56          void newAttendance(void);
+  57          void editAttendance(void);
+  58          void deleteAttendance(void);
+  59          void clearSession(void);
+  60          void clearDevice(void);
+  61          void stopDevice(void);
+  62          void showTeacherLogin(void);
+  63          int getKeyPressed(void);
+  64          /*............................................................
+  65          FUNCTION DEFINITION : main() 
+  66          ..............................................................*/
+  67          void main(void){
+  68   1              initializeDevice();
+  69   1              showAndSetDate();       
+  70   1              while(1){               
+  71   2                      showWelcomeScreen();
+  72   2                      result=getKeyPressed();
+  73   2                      if(result==SelectAdmin){
+  74   3                              showAdminLogin();
+  75   3                      }else if(result==SelectTeacher){
+  76   3                              showTeacherLogin();
+  77   3                      }
+  78   2              }
+  79   1              clearDevice();
+  80   1              stopDevice();
+  81   1      }
+  82          /*............................................................
+  83          END OF DEFINITION : main() 
+  84          ..............................................................*/
+  85          
+  86          /*............................................................
+  87          FUNCTION DEFINITION : void initializeDevice() 
+  88          ..............................................................*/
+  89          void initializeDevice(){
+  90   1      
+  91   1      }
+  92          /*............................................................
+  93          END OF DEFINITION :void initializeDevice() 
+  94          ..............................................................*/
+  95          
+  96          /*............................................................
+  97          FUNCTION DEFINITION : showAndSetDate() 
+  98          ..............................................................*/
+  99          void showAndSetDate(){
+ 100   1      
+ 101   1      }
+ 102          /*............................................................
+ 103          END OF DEFINITION : showAndSetDate() 
+ 104          ..............................................................*/
+ 105          
+ 106          /*............................................................
+ 107          FUNCTION DEFINITION : showWelcomeScreen() 
+ 108          ..............................................................*/
+ 109          void showWelcomeScreen(){
+ 110   1      
+ 111   1      }
+ 112          /*............................................................
+ 113          END OF DEFINITION : showWelcomeScreen() 
+ 114          ..............................................................*/
+ 115          
+ 116          /*............................................................
+ 117          FUNCTION DEFINITION : showAdminLogin() 
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 3   
+
+ 118          ..............................................................*/
+ 119          void showAdminLogin(){
+ 120   1              showAdminDisplay();
+ 121   1              while(1){
+ 122   2                      result=getKeyPressed();
+ 123   2                      if(result==KeyTeacher){
+ 124   3                              showTeachersMenu();
+ 125   3                              result=getKeyPressed();
+ 126   3                              if(result==CreateTeacher)
+ 127   3                                      createTeacher();
+ 128   3                              else if(result==EditTeacher)
+ 129   3                                      editTeacher();
+ 130   3                              else if(result==DeleteTeacher)
+ 131   3                                      deleteTeacher();
+ 132   3                      }else if(result==KeyStudent){
+ 133   3                              showStudentMenu();
+ 134   3                              result=getKeyPressed();
+ 135   3                              if(result==CreateStudent)
+ 136   3                                      createStudent();
+ 137   3                              else if(result==EditStudent)
+ 138   3                                      editStudent();
+ 139   3                              else if(result==DeleteStudent)
+ 140   3                                      deleteStudent();
+ 141   3                      }else if(result==KeySubject){
+ 142   3                              showSubjectMenu();
+ 143   3                              result=getKeyPressed();
+ 144   3                              if(result==CreateSubject)
+ 145   3                                      createSubject();
+ 146   3                              else if(result==EditSubject)
+ 147   3                                      editSubject();
+ 148   3                              else if(result==DeleteSubject)
+ 149   3                                      deleteSubject();
+ 150   3                      }else if(result==KeyClearAttendance){
+ 151   3                              clearAttendance();      
+ 152   3                      }else if(result==KeyPassword){
+ 153   3                              changePassword();
+ 154   3                      }else if(result==KeyAdminLogout){
+ 155   3                              return;
+ 156   3                      }
+ 157   2              }
+ 158   1      }
+ 159          /*............................................................
+ 160          END OF DEFINITION : showAdminLogin() 
+ 161          ..............................................................*/
+ 162          
+ 163          /*............................................................
+ 164          FUNCTION DEFINITION : showTeacherLogin() 
+ 165          ..............................................................*/
+ 166          void showTeacherLogin(){
+ 167   1              showTeacherDisplay();
+ 168   1              while(1){
+ 169   2                      result=getKeyPressed();
+ 170   2                      if(result==KeyNewAttendance)
+ 171   2                              newAttendance();
+ 172   2                      else if(result==KeyEditAttendance)
+ 173   2                              editAttendance();
+ 174   2                      else if(result==KeyDeleteAttendance)
+ 175   2                              deleteAttendance();
+ 176   2                      else if(result==KeyTeacherLogout){
+ 177   3                              clearSession();
+ 178   3                              return;
+ 179   3                      }
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 4   
+
+ 180   2              }
+ 181   1      }
+ 182          /*............................................................
+ 183          END OF DEFINITION : showTeacherLogin() 
+ 184          ..............................................................*/
+ 185          
+ 186          /*............................................................
+ 187          FUNCTION DEFINITION : getKeyPressed() 
+ 188          ..............................................................*/
+ 189          int getKeyPressed(){
+ 190   1              
+ 191   1      }
+ 192          /*............................................................
+ 193          END OF DEFINITION : getKeyPressed() 
+ 194          ..............................................................*/
+ 195          
+ 196          /*............................................................
+ 197          FUNCTION DEFINITION : showAdminDisplay() 
+ 198          ..............................................................*/
+ 199          void showAdminDisplay(){
+ 200   1      
+ 201   1      }
+ 202          /*............................................................
+ 203          END OF DEFINITION : showAdminDisplay() 
+ 204          ..............................................................*/
+ 205          
+ 206          /*............................................................
+ 207          FUNCTION DEFINITION : createTeacher() 
+ 208          ..............................................................*/
+ 209          void createTeacher(){
+ 210   1      
+ 211   1      }
+ 212          /*............................................................
+ 213          END OF DEFINITION : createTeacher() 
+ 214          ..............................................................*/
+ 215          
+ 216          
+ 217          /*............................................................
+ 218          FUNCTION DEFINITION : editTeacher() 
+ 219          ..............................................................*/
+ 220          void editTeacher(){
+ 221   1      
+ 222   1      }
+ 223          /*............................................................
+ 224          END OF DEFINITION : editTeacher() 
+ 225          ..............................................................*/
+ 226          
+ 227          
+ 228          /*............................................................
+ 229          FUNCTION DEFINITION : deleteTeacher() 
+ 230          ..............................................................*/
+ 231          void deleteTeacher(){
+ 232   1      
+ 233   1      }
+ 234          /*............................................................
+ 235          END OF DEFINITION : deleteTeacher() 
+ 236          ..............................................................*/
+ 237          
+ 238          
+ 239          /*............................................................
+ 240          FUNCTION DEFINITION : showTeachersMenu() 
+ 241          ..............................................................*/
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 5   
+
+ 242          void showTeachersMenu(){
+ 243   1      
+ 244   1      }
+ 245          /*............................................................
+ 246          END OF DEFINITION : showTeachersMenu() 
+ 247          ..............................................................*/
+ 248          
+ 249          
+ 250          /*............................................................
+ 251          FUNCTION DEFINITION : showStudentMenu() 
+ 252          ..............................................................*/
+ 253          void showStudentMenu(){
+ 254   1      
+ 255   1      }
+ 256          /*............................................................
+ 257          END OF DEFINITION : showStudentMenu() 
+ 258          ..............................................................*/
+ 259          
+ 260          
+ 261          /*............................................................
+ 262          FUNCTION DEFINITION : createStudent() 
+ 263          ..............................................................*/
+ 264          void createStudent(){
+ 265   1      
+ 266   1      }
+ 267          /*............................................................
+ 268          END OF DEFINITION : createStudent() 
+ 269          ..............................................................*/
+ 270          
+ 271          
+ 272          /*............................................................
+ 273          FUNCTION DEFINITION : editStudent() 
+ 274          ..............................................................*/
+ 275          void editStudent(){
+ 276   1      
+ 277   1      }
+ 278          /*............................................................
+ 279          END OF DEFINITION : editStudent() 
+ 280          ..............................................................*/
+ 281          
+ 282          
+ 283          /*............................................................
+ 284          FUNCTION DEFINITION : deleteStudent() 
+ 285          ..............................................................*/
+ 286          void deleteStudent(){
+ 287   1      
+ 288   1      }
+ 289          /*............................................................
+ 290          END OF DEFINITION : deleteStudent() 
+ 291          ..............................................................*/
+ 292          
+ 293          
+ 294          /*............................................................
+ 295          FUNCTION DEFINITION : showSubjectMenu() 
+ 296          ..............................................................*/
+ 297          void showSubjectMenu(){
+ 298   1      
+ 299   1      }
+ 300          /*............................................................
+ 301          END OF DEFINITION : showSubjectMenu() 
+ 302          ..............................................................*/
+ 303          
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 6   
+
+ 304          
+ 305          /*............................................................
+ 306          FUNCTION DEFINITION : createSubject() 
+ 307          ..............................................................*/
+ 308          void createSubject(){
+ 309   1      
+ 310   1      }
+ 311          /*............................................................
+ 312          END OF DEFINITION : createSubject() 
+ 313          ..............................................................*/
+ 314          
+ 315          
+ 316          /*............................................................
+ 317          FUNCTION DEFINITION : editSubject() 
+ 318          ..............................................................*/
+ 319          void editSubject(){
+ 320   1      
+ 321   1      }
+ 322          /*............................................................
+ 323          END OF DEFINITION : editSubject() 
+ 324          ..............................................................*/
+ 325          
+ 326          
+ 327          /*............................................................
+ 328          FUNCTION DEFINITION : deleteSubject() 
+ 329          ..............................................................*/
+ 330          void deleteSubject(){
+ 331   1      
+ 332   1      }
+ 333          /*............................................................
+ 334          END OF DEFINITION : deleteSubject() 
+ 335          ..............................................................*/
+ 336          
+ 337          
+ 338          /*............................................................
+ 339          FUNCTION DEFINITION : clearAttendance() 
+ 340          ..............................................................*/
+ 341          void clearAttendance(){
+ 342   1      
+ 343   1      }
+ 344          /*............................................................
+ 345          END OF DEFINITION : clearAttendance() 
+ 346          ..............................................................*/
+ 347          
+ 348          
+ 349          /*............................................................
+ 350          FUNCTION DEFINITION : changePassword() 
+ 351          ..............................................................*/
+ 352          void changePassword(){
+ 353   1      
+ 354   1      }
+ 355          /*............................................................
+ 356          END OF DEFINITION : changePassword() 
+ 357          ..............................................................*/
+ 358          
+ 359          
+ 360          /*............................................................
+ 361          FUNCTION DEFINITION : showTeacherDisplay() 
+ 362          ..............................................................*/
+ 363          void showTeacherDisplay(){
+ 364   1      
+ 365   1      }
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 7   
+
+ 366          /*............................................................
+ 367          END OF DEFINITION : showTeacherDisplay() 
+ 368          ..............................................................*/
+ 369          
+ 370          
+ 371          /*............................................................
+ 372          FUNCTION DEFINITION : newAttendance() 
+ 373          ..............................................................*/
+ 374          void newAttendance(){
+ 375   1      
+ 376   1      }
+ 377          /*............................................................
+ 378          END OF DEFINITION : newAttendance() 
+ 379          ..............................................................*/
+ 380          
+ 381          
+ 382          /*............................................................
+ 383          FUNCTION DEFINITION : editAttendance() 
+ 384          ..............................................................*/
+ 385          void editAttendance(){
+ 386   1      
+ 387   1      }
+ 388          /*............................................................
+ 389          END OF DEFINITION : editAttendance() 
+ 390          ..............................................................*/
+ 391          
+ 392          
+ 393          /*............................................................
+ 394          FUNCTION DEFINITION : deleteAttendance() 
+ 395          ..............................................................*/
+ 396          void deleteAttendance(){
+ 397   1      
+ 398   1      }
+ 399          /*............................................................
+ 400          END OF DEFINITION : deleteAttendance() 
+ 401          ..............................................................*/
+ 402          
+ 403          
+ 404          /*............................................................
+ 405          FUNCTION DEFINITION : clearSession() 
+ 406          ..............................................................*/
+ 407          void clearSession(){
+ 408   1      
+ 409   1      }
+ 410          /*............................................................
+ 411          END OF DEFINITION : clearSession() 
+ 412          ..............................................................*/
+ 413          
+ 414          
+ 415          /*............................................................
+ 416          FUNCTION DEFINITION : clearDevice() 
+ 417          ..............................................................*/
+ 418          void clearDevice(){
+ 419   1      
+ 420   1      }
+ 421          /*............................................................
+ 422          END OF DEFINITION : clearDevice() 
+ 423          ..............................................................*/
+ 424          
+ 425          
+ 426          /*............................................................
+ 427          FUNCTION DEFINITION : stopDevice() 
+C51 COMPILER V7.04   ATTENDANCE                                                            02/21/2012 19:57:14 PAGE 8   
+
+ 428          ..............................................................*/
+ 429          void stopDevice(){
+ 430   1      
+ 431   1      }
+ 432          /*............................................................
+ 433          END OF DEFINITION : stopDevice() 
+ 434          ..............................................................*/
+ 435          
+ 436          
+ 437          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    356    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
